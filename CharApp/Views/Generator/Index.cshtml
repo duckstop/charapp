@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<div class="text-center"><h2> Character Generator 3000</h2></div>
+
+@*Knap der ved tryk klader POST metoden *@
+
+@using (Html.BeginForm("GeneratedIndex", "Generator"))
+{
+
+    <br/>
+    <br />
+    <br />
+    
+    <div class="text-center" >
+        <div class ="row"></div><input class="btn btn-success btn-lg" type="submit" value="GENERATE" />
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+
+}
+
+

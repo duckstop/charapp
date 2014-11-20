@@ -1,0 +1,37 @@
+﻿@using CharApp.Models
+@using Microsoft.AspNet.Identity
+@model CharApp.ViewModels.CharacterViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+    var user = User.Identity.GetUserId();
+   
+    
+}
+@*Index view der viser billeder af inlogget brugers Characters *@
+    <h2>Your characters</h2>
+
+ <div class="row">
+    @foreach (Character character in Model.Characters)
+    {
+        @*If sætninger der sørger for at det kun er den nuværende brugers Characters der vises*@
+        if (user.Equals(character.owner))
+         {
+
+             <div class="col-lg-2 col-sm-3 col-xs-4">
+                 <a href="@Url.Action("Edit", "Home", new {id = @character.CharID})">
+
+                     <img src="../../@character.imagePath" class="profileImage thumbnail img-responsive">
+                 </a>
+             </div>
+
+
+         }
+
+    }
+
+</div>
+
+

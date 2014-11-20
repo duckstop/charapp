@@ -1,0 +1,70 @@
+﻿@using System.Data.Entity.ModelConfiguration.Conventions
+@using CharApp.Controllers
+@using CharApp.Models
+@model CharApp.Models.Character
+
+@{
+    ViewBag.Title = "GeneratedIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+
+<h3>Generated Character</h3>
+
+@*Viewet viser felter med genereret indhold, samt indeholder en knap der ved tryk
+  kalder GET SaveGeneratedCharacter metoden i GeneratorControlleren og passer relevante data *@
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BodyType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BodyType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quirk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quirk)
+        </dd>
+
+
+    </dl>
+</div>
+@using (Html.BeginForm("SaveGeneratedCharacter", "Generator", new { id = Model.CharID }, FormMethod.Get))
+{ 
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-offset-2  col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+    <p>
+        @Html.ActionLink("Back", "DiscardGeneratedCharacter", new {id = Model.CharID})
+    </p>
+   
+ 
